@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-function PrivateList() {
+function Dashboard() {
     return (
         <div>
-            <h1>This is private List</h1>
+            <h1>Dashboard</h1>
         </div>
     )
 }
-export default PrivateList;
+export default Dashboard;
