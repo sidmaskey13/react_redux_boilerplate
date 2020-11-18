@@ -1,0 +1,1 @@
+export const GET_CAT_FACTS = 'GET_CAT_FACTS'
