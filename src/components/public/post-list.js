@@ -1,39 +1,39 @@
 import React, {useEffect, useState} from 'react';
-import { connect, useDispatch, useSelector } from "react-redux";
-import { getFacts } from "../../redux/cat-facts/action";
+import {  useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../../redux/post/action";
 import { Pagination } from 'semantic-ui-react'
 
-function CatFactList() {
-    const facts = useSelector(state => state.catFacts.catFacts)
+function PostList() {
+    const posts = useSelector(state => state.post.posts)
     const [currentPage, setCurrentPage] = useState(1);
     const [showPerPage] = useState(10);
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getFacts());
+        dispatch(getPosts());
     }, []);
 
-    const indexOfLastFact = currentPage * showPerPage;
-    const indexOfFirstFact = indexOfLastFact - showPerPage;
-    const currentFacts = facts.slice(indexOfFirstFact, indexOfLastFact)
+    const indexOfLastData = currentPage * showPerPage;
+    const indexOfFirstData = indexOfLastData - showPerPage;
+    const currentData = posts.slice(indexOfFirstData, indexOfLastData)
 
     const handlePaginationChange = (e, { activePage }) => setCurrentPage(activePage);
         return (
             <div>
-                <h1>Cat Facts</h1>
+                <h1>All Posts</h1>
                 <Pagination
                     defaultActivePage={1}
-                    totalPages={Math.ceil(facts.length / showPerPage)}
+                    totalPages={Math.ceil(posts.length / showPerPage)}
                     onPageChange={handlePaginationChange}
                     activePage={currentPage}
                 />
                 <ul className="list-group">
-                    {facts ? currentFacts.map(fact => (
-                        <li key={fact.id} className="list-group-item">{fact.text}</li>
+                    {posts ? currentData.map(post => (
+                        <li key={post.id} className="list-group-item">{post.title}</li>
                     )) : "Not Found"}
                 </ul>  
             </div>
         )   
 }
 
-export default CatFactList;
+export default PostList;

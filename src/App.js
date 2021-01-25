@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/layout/header'
-import CatFactList from './components/public/cat-facts-list'
+import PostList from './components/public/post-list'
 import Counter from './components/public/counter'
 import Clicker from './components/public/clicker'
 import Dashboard from './components/private/dashboard'
@@ -19,7 +19,7 @@ function App() {
         <Header />
         <div className="container">
           <Switch>
-            <Route exact path="/" component={CatFactList} />
+            <Route exact path="/" component={PostList} />
             <Route exact path="/counter" component={Counter} />
             <Route exact path="/clicker" component={Clicker} />
             <Route exact path="/login" component={Login} />

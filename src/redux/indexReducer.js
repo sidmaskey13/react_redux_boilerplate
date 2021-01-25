@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import CatFactsReducer from './cat-facts/reducer'
+import PostReducer from './post/reducer'
 import AuthReducer from './auth/reducer'
 
 export default combineReducers({
-    catFacts: CatFactsReducer,
+    post: PostReducer,
     auth: AuthReducer,
 })
